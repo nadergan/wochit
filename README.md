@@ -2,8 +2,9 @@
 
 Prints the list of a duplicate file in the directory
 
-
 ## Running
+
+`temp` directory contains list of sample dummpy files for testing
 
 ### Python
 `python3 wochit.py <path to scan>` 
