@@ -12,21 +12,19 @@ def main():
         pathToScan = os.getcwd()
 
     hashes = {}
-    for dirName, subdirs, fileList in os.walk(pathToScan):    
+    for dirName, subdirs, fileList in os.walk(pathToScan):
         for filename in fileList:
             path = os.path.join(dirName, filename)
             theHash = hashFile(path)
-           
+
             if theHash in hashes:
                 hashes[theHash].append(path)
             else:
                 hashes[theHash] = [path]
-    
     for h, filenames in hashes.items():
         if len(filenames) > 1:
-            print(f'{len(filenames)} identical files found with hash {h}')
-            for f in filenames:
-                print(f)
+            dups=str(filenames).replace('[','').replace(']','').replace("'", '')
+            print(dups)
 
 
 def hashFile(filename):
@@ -42,4 +40,3 @@ def hashFile(filename):
 
 if __name__ == "__main__":
     main()
-
